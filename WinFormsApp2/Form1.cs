@@ -14,28 +14,28 @@ namespace WinFormsApp2
         }
 
         private void button1_Click(object sender, EventArgs e)
-        { 
+        {
             if (string.IsNullOrEmpty(fname.Text))
             {
                 MessageBox.Show("Please enter your name ", "Name required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if(string.IsNullOrEmpty(email.Text))
+            if (string.IsNullOrEmpty(email.Text))
             {
                 MessageBox.Show("Please enter your email address ", "Email required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if(string.IsNullOrEmpty(password.Text))
+            if (string.IsNullOrEmpty(password.Text))
             {
                 MessageBox.Show("Please enter your account password", "Password required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if(string.IsNullOrEmpty(address.Text))
+            if (string.IsNullOrEmpty(address.Text))
             {
                 MessageBox.Show("Please enter your address", "Address required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if(string.IsNullOrEmpty(postalcode.Text))
+            if (string.IsNullOrEmpty(postalcode.Text))
             {
                 MessageBox.Show("Please enter your postal code", "Postal code required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -45,9 +45,9 @@ namespace WinFormsApp2
                 MessageBox.Show("Please enter your city", "City required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            using(SqlConnection conn = new SqlConnection("Data Source=DESKTOP-BHPJ89K\\SQLEXPRESS;Initial Catalog=registrations;Integrated Security=True;TrustServerCertificate=True"))
+            using (SqlConnection conn = new SqlConnection("Data Source=DESKTOP-BHPJ89K\\SQLEXPRESS;Initial Catalog=registrations;Integrated Security=True;TrustServerCertificate=True"))
             {
-                if(conn.State == System.Data.ConnectionState.Closed)
+                if (conn.State == System.Data.ConnectionState.Closed)
                 {
                     conn.Open();
                 }
@@ -74,16 +74,25 @@ namespace WinFormsApp2
                 cmd.Parameters.AddWithValue("@postalcode", postalcode.Text);
                 cmd.Parameters.AddWithValue("@city", city.Text);
                 int rowAffected = cmd.ExecuteNonQuery();
-                if(rowAffected > 0)
+                if (rowAffected > 0)
                 {
                     MessageBox.Show("Client registered successfully", "Registration Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Cliend failed to register", "Registration failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
+        }
+
+        private void loginbtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login loginForm = new Login();
+            loginForm.ShowDialog();
+
         }
     }
 }

@@ -41,6 +41,7 @@
             address = new TextBox();
             postalcode = new TextBox();
             city = new TextBox();
+            loginbtn = new Button();
             SuspendLayout();
             // 
             // label1
@@ -57,7 +58,7 @@
             email.Location = new Point(341, 173);
             email.Name = "email";
             email.Size = new Size(331, 23);
-            email.TabIndex = 1;
+            email.TabIndex = 2;
             // 
             // label2
             // 
@@ -78,10 +79,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(341, 518);
+            button1.Location = new Point(308, 514);
             button1.Name = "button1";
-            button1.Size = new Size(331, 34);
-            button1.TabIndex = 4;
+            button1.Size = new Size(341, 34);
+            button1.TabIndex = 7;
             button1.Text = "Save information to database";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
@@ -100,7 +101,7 @@
             fname.Location = new Point(341, 115);
             fname.Name = "fname";
             fname.Size = new Size(331, 23);
-            fname.TabIndex = 6;
+            fname.TabIndex = 1;
             // 
             // label4
             // 
@@ -134,27 +135,38 @@
             address.Location = new Point(341, 285);
             address.Name = "address";
             address.Size = new Size(331, 23);
-            address.TabIndex = 10;
+            address.TabIndex = 4;
             // 
             // postalcode
             // 
             postalcode.Location = new Point(341, 336);
             postalcode.Name = "postalcode";
             postalcode.Size = new Size(331, 23);
-            postalcode.TabIndex = 11;
+            postalcode.TabIndex = 5;
             // 
             // city
             // 
             city.Location = new Point(341, 388);
             city.Name = "city";
             city.Size = new Size(331, 23);
-            city.TabIndex = 12;
+            city.TabIndex = 6;
+            // 
+            // loginbtn
+            // 
+            loginbtn.Location = new Point(308, 569);
+            loginbtn.Name = "loginbtn";
+            loginbtn.Size = new Size(341, 29);
+            loginbtn.TabIndex = 8;
+            loginbtn.Text = "Back to login";
+            loginbtn.UseVisualStyleBackColor = true;
+            loginbtn.Click += loginbtn_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(879, 610);
+            Controls.Add(loginbtn);
             Controls.Add(city);
             Controls.Add(postalcode);
             Controls.Add(address);
@@ -169,7 +181,7 @@
             Controls.Add(email);
             Controls.Add(label1);
             Name = "Form1";
-            Text = "New client registration";
+            Text = "User notes registration";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -190,5 +202,6 @@
         private TextBox address;
         private TextBox postalcode;
         private TextBox city;
+        private Button loginbtn;
     }
 }
